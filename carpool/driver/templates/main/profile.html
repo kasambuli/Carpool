@@ -1,0 +1,15 @@
+{%extends '../registration/base.html'%} 
+{% load bootstrap3 %}{% block content %}
+
+
+<!-- Looping through news end   -->
+<div class="container-fluid">
+  {{form.media}}
+  <form  action="{%url 'profile'%}" method="post">
+    {%csrf_token%}
+
+    {% bootstrap_form form layout='inline' %}
+    <input type="submit" value="Create Profile">
+  </form>
+
+</div>{% endblock %}
