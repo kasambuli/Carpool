@@ -1,0 +1,38 @@
+{%extends "registration/base.html"%} {% load bootstrap3 %} {% block content %}
+<div class="container">
+    <div class="row">
+        <!-- Empty div -->
+        <div class="col-md-7"></div>
+        <div class="col-md-5">
+            {% if form.errors %}
+            <p> Some Information Might be Incorrect </p>
+            {% endif %}
+            <div class="panel panel-default">
+
+                <div class="panel-heading" style="background-color: black; color: aqua; border: 1px solid black;">
+                    <h3 class="text-center">Driver Sign Up</h3>
+                </div>
+                <div class="panel-body" style="background-color: #ffffff;border: 1px solid white;color: aqua">
+
+                    <form action="/accounts/register/" method="post">
+                        {% csrf_token %} {% bootstrap_form form %}
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary btn-sm" value="Sign Up" style="background-color: black; color: aqua; border:1px solid black;">
+                        </div>
+
+                        <input type="hidden" name="next" value="{{next}}">
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+{% endblock %}
